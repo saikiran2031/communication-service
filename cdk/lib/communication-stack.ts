@@ -10,7 +10,7 @@ export class CommunicationServiceStack extends cdk.Stack {
 
         // Define Braze Integration Lambda using NodejsFunction
         const notifyUserLambda = new NodejsFunction(this, 'NotifyUserFunction', {
-            runtime: lambda.Runtime.NODEJS_18_X,
+            runtime: lambda.Runtime.NODEJS_20_X,
             entry: path.join(__dirname, '../../src/adapters/primary/lambda/notifyUser.ts'),
             handler: 'handler',
             environment: {
