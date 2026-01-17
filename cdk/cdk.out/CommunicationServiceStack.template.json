@@ -1,6 +1,6 @@
 {
  "Resources": {
-  "BrazeWrapperFunctionServiceRole489BC634": {
+  "NotifyUserFunctionServiceRole5C70261A": {
    "Type": "AWS::IAM::Role",
    "Properties": {
     "AssumeRolePolicyDocument": {
@@ -27,48 +27,19 @@
         ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
        ]
       ]
-     },
-     {
-      "Fn::Join": [
-       "",
-       [
-        "arn:",
-        {
-         "Ref": "AWS::Partition"
-        },
-        ":iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-       ]
-      ]
      }
     ]
    },
    "Metadata": {
-    "aws:cdk:path": "CommunicationServiceStack/BrazeWrapperFunction/ServiceRole/Resource"
+    "aws:cdk:path": "CommunicationServiceStack/NotifyUserFunction/ServiceRole/Resource"
    }
   },
-  "BrazeWrapperFunctionSecurityGroupB43B9D28": {
-   "Type": "AWS::EC2::SecurityGroup",
-   "Properties": {
-    "GroupDescription": "Automatic security group for Lambda Function CommunicationServiceStackBrazeWrapperFunctionF6FFFBB6",
-    "SecurityGroupEgress": [
-     {
-      "CidrIp": "0.0.0.0/0",
-      "Description": "Allow all outbound traffic by default",
-      "IpProtocol": "-1"
-     }
-    ],
-    "VpcId": "vpc-06bda5f4f73b9a3e8"
-   },
-   "Metadata": {
-    "aws:cdk:path": "CommunicationServiceStack/BrazeWrapperFunction/SecurityGroup/Resource"
-   }
-  },
-  "BrazeWrapperFunction91AB5BFE": {
+  "NotifyUserFunction24970A2B": {
    "Type": "AWS::Lambda::Function",
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-520072123213-us-east-1",
-     "S3Key": "fb754a3c899f33f2f18c7cb4ecafcb2e1d91be70598f321f2f682c1de7ecddcc.zip"
+     "S3Key": "42138266ea63e41f4006ba62be11adc02c2c40cb323841432df3e3be68ebabb7.zip"
     },
     "Environment": {
      "Variables": {
@@ -78,40 +49,27 @@
     "Handler": "index.handler",
     "Role": {
      "Fn::GetAtt": [
-      "BrazeWrapperFunctionServiceRole489BC634",
+      "NotifyUserFunctionServiceRole5C70261A",
       "Arn"
      ]
     },
     "Runtime": "nodejs18.x",
-    "VpcConfig": {
-     "SecurityGroupIds": [
-      {
-       "Fn::GetAtt": [
-        "BrazeWrapperFunctionSecurityGroupB43B9D28",
-        "GroupId"
-       ]
-      }
-     ],
-     "SubnetIds": [
-      "subnet-00c156c21c078bfd5",
-      "subnet-046a85bfc404785e5"
-     ]
-    }
+    "Timeout": 30
    },
    "DependsOn": [
-    "BrazeWrapperFunctionServiceRole489BC634"
+    "NotifyUserFunctionServiceRole5C70261A"
    ],
    "Metadata": {
-    "aws:cdk:path": "CommunicationServiceStack/BrazeWrapperFunction/Resource",
-    "aws:asset:path": "asset.fb754a3c899f33f2f18c7cb4ecafcb2e1d91be70598f321f2f682c1de7ecddcc",
-    "aws:asset:is-bundled": false,
+    "aws:cdk:path": "CommunicationServiceStack/NotifyUserFunction/Resource",
+    "aws:asset:path": "asset.42138266ea63e41f4006ba62be11adc02c2c40cb323841432df3e3be68ebabb7",
+    "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }
   },
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WOSw7CMAxEz8LeNSIVB6BIsC8HqNLUIPeToDgBoSh3pwGxYPU8Y41mFKpa4W6jn1KZYapm7jFdgjYTtCQuekOw/ro066UfNKZTtCaws3C82t+dgfWCqXUzFbswg9SdFqEgeChYNTbRTBQaLQRk1NpDJnoOr7N38V6Sf0bO8Emua25sbxmsGwhH2T7UHsvmUZgrH23ghbD98g0lin4O0AAAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/zWOSw6CQAyGz+K+1DjEA4iJSxd4AFKGSspjJqEzuiDc3RmIqy9/8z9q0JQGLyf6amG7sZikxfUVyI6QTs060dx21Djf8aD43PGIzgbxDoRmXGs/MdzfLnMDLRtS5aB4y0gaq2hHDhUpw9GGyf3v2KBm9XGxDHsgTffi+g3yIg56/pgr5gcHFSmW6ILMjPXBH6LGyqK9AAAA"
    },
    "Metadata": {
     "aws:cdk:path": "CommunicationServiceStack/CDKMetadata/Default"

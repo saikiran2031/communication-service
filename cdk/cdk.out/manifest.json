@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::520072123213:role/cdk-hnb659fds-deploy-role-520072123213-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::520072123213:role/cdk-hnb659fds-cfn-exec-role-520072123213-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-520072123213-us-east-1/4e1b0260463f5650699b738c969193423635326ac07002ffd47f3a4f2551c255.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-520072123213-us-east-1/f498b53ac0629b09c317c4f0fa85af59240b690074f1294fa66621260c67e388.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -34,22 +34,16 @@
         "CommunicationServiceStack.assets"
       ],
       "metadata": {
-        "/CommunicationServiceStack/BrazeWrapperFunction/ServiceRole/Resource": [
+        "/CommunicationServiceStack/NotifyUserFunction/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "BrazeWrapperFunctionServiceRole489BC634"
+            "data": "NotifyUserFunctionServiceRole5C70261A"
           }
         ],
-        "/CommunicationServiceStack/BrazeWrapperFunction/SecurityGroup/Resource": [
+        "/CommunicationServiceStack/NotifyUserFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "BrazeWrapperFunctionSecurityGroupB43B9D28"
-          }
-        ],
-        "/CommunicationServiceStack/BrazeWrapperFunction/Resource": [
-          {
-            "type": "aws:cdk:logicalId",
-            "data": "BrazeWrapperFunction91AB5BFE"
+            "data": "NotifyUserFunction24970A2B"
           }
         ],
         "/CommunicationServiceStack/CDKMetadata/Default": [
